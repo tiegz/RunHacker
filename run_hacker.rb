@@ -1,3 +1,5 @@
+sudo gem install active_support hpricot json
+
 require 'rubygems'
 require 'active_support'
 require 'open-uri'
@@ -240,7 +242,7 @@ if __FILE__ == $0
         rwEventDateTime = DateTime.new(d[0..3].to_i, d[5..6].to_i, d[8..9].to_i, t[0..1].to_i, t[3..4].to_i, t[6..7].to_i)
 
         # The Duration
-        rwDuration = rwEvent['Duration'].split(':').map { |str| str.to_i }
+        rwDuration = (rwEvent['Duration'] || "00:01").split(':').map { |str| str.to_i }
         rwDuration.unshift(0) while rwDuration.length < 3
         rwDuration[1] += rwDuration[0] * 60 
         rwDuration[2] += rwDuration[1] * 60
