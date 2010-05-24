@@ -1,5 +1,3 @@
-sudo gem install active_support hpricot json
-
 require 'rubygems'
 require 'active_support'
 require 'open-uri'
